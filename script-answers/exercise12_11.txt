@@ -1,0 +1,6 @@
+docker ps
+docker exec -it 86d bash
+redis-cli KEYS *
+redis-cli GET added_todos
+redis-cli SET added_todos 9001
+redis-cli DEL added_todos

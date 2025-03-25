@@ -18,10 +18,20 @@ if (!REDIS_URL) {
   })
     
   getAsync = promisify(client.get).bind(client)
-  setAsync = promisify(client.set).bind(client)    
+  setAsync = promisify(client.set).bind(client)
+  incrAsync = promisify(client.incr).bind(client)   
+}
+
+const incrementAddedTodos = async () =>{ 
+  await incrAsync('added_todos')
+}
+const getAddedTodos = async () => {
+  return Number(await getAsync('added_todos'))
 }
 
 module.exports = {
   getAsync,
-  setAsync
+  setAsync,
+  incrementAddedTodos,
+  getAddedTodos
 }
