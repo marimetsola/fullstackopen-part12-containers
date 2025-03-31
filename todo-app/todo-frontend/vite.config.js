@@ -8,5 +8,12 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     setupFiles: './testSetup.js'
+  },
+  server : {
+    port: 5173, // must be a port other than 5173
+    host: true,
+    watch: {
+      usePolling: true,
+    },
   }
 })
