@@ -6,7 +6,7 @@ COPY --chown=node:node . .
 
 COPY . .
 
-RUN npm ci
+RUN npm ci --omit=dev
 
 ENV DEBUG=express:*
 
